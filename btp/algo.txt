@@ -1,0 +1,28 @@
+Schrijver 
+
+minimizing submidular function.
+it is conbinotorial algorithm, which doesn't require very stud lin. alzebra.
+
+terminolozy 
+1. assumption f(phi)=0, because if it is not we can replace f(x) by f(x)-f(phi), which won't effect minimizing condition
+2. we can find out f(U) for every U c= V in polynomial time. & it's value is compariale. let's assume it is in R.
+3. Bf = { x , x in R^V | x(U)<=f(U) for U c= V , x(V)=f(V) }
+4. x(U)= sum(x(v)) | v belongs U
+5. let < is total order ( comparision operater ) b/w two vector based on some criteria, 
+	(v<) = { u in V | u<v } 
+	(v<=) = {u in V | (u<v or u=v) } where = operater is true if both side are equall
+6. b<(v) = f( v<= ) - f(v<) , for some v belongs V
+
+i can prove that (b<(U)) <=r  (f(U)) , where <=r means usuall (less then equall to) in R
+7. for any u < v (both belongs to V) let <s,u is another total order in vectors ( as function of <) : 
+	A) u  <s,u v if ( v<u && s<=v<u  ) 
+	B) v  <s,u u if ( u<v && s<=v<u  )
+	c) u <s,u v if (u<v && not(s<=v<u) ) 
+	c) v <s,u u if (v<u && not(s<=v<u) ) 
+I can prove that 
+b<s,u (v) <= b(v) if s<=v<u
+b<s,u (v) >= b(v) if u=v
+b<s,u (v) = b(v) if none of above
+
+Algo : 
+	

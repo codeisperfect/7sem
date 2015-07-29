@@ -1,0 +1,38 @@
+basicly defination (along with example ) of submodular function. although i could not prove how cut function is submodular.
+
+then their is defination of a special function, metroid:
+matroid is a function which inputs set of vector & outputs the set of all possible independed subset of it.
+(independed => two vector should be linearly independed)
+(independed set => every two element of set should be independed)
+maximum independed set => ( called basis )(we can write it properly...using "SO CALLED WRAPPERS")  & any two basis will have definatly same number of vectors & this number is called rank.
+
+independed => satisfy two property : 1 phi belongs to it. 2. it's subset will also independed ( ofcourse ) ,3 . if one independed set is smaller then other then their exist atleats one element in bigger set s.t. if we add it to smaller, smaller is still independed.
+
+a function (set of vector ) => (rank of. ...) is also sub-mod. func.
+
+
+
+where rank is size of largent independed set, which is subset of input set.
+
+then their is defination of minimizer of a sub-mod func.  ( minima of f over all set )
+
+then they told that minm. s-t cut problem can be reduse to finding minimizer of that function.
+
+then their is a theorm ( emdon theorm) & which reduses bi-partite max. matching problem to finding minimizer of that sub-mod. func.
+
+
+As we know we can solve {s,t} cut problem in polynomial time but it is difficult to solve general sub.mod function in polynimial time.
+
+
+then there is that algorithm ...
+
+then there is sub.mod. polyhydron defination ( although i didn't know what does natural extension means) P(f)
+
+that greedy algo is depended on very high lin. Alzebra.
+so let's study conbintorial proof.
+& there is some definations..
+
+
+
+#subah tk baki ke part bhi bhejta hu...
+#i am forgetting some definations.. n dekh ke fir se pdh ke bejta hu.[ before u wake up]

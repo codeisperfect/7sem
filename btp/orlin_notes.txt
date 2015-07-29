@@ -1,0 +1,72 @@
+my sumbol:
+	c= Subset
+	c proper subset
+	/\ intersection
+	\/ union
+
+Orlin Algorithm
+
+Here defination is submodular is restricted with
+V={1,2,3...n} , which is ok, because we can define a diffrent function which is f'(x)=f(V[x]) , i.e. on these index, some diffrent values are there.
+
+same, we assumed f(Phi)=0
+for X C= Y let fx(Y)=f(XUY)-f(X)
+fx is also submodular if f is. (I can prove)
+& hence they defined another way of sub-mod fun : 
+for all X,Y c= V, v not in ( X \/ Y) then fy(v)<=fx(v) [ I can prove it too]
+
+let M = Max ( Time taken to calculate f(S) for S c= V)
+
+Base Polyhedron
+
+for a vector x in R^( |V| ) , let x(v) is it's vth component, & let x'(v)=min(0,x(v))
+& for a subset x(S)=sum (x(v)) for v in S
+B(f) = { x | x in R^(|V|) , x(V) = f(V) , for all S C= V, x(S)<=f(S) }
+a vector in B(f) is called base, extreme point in base is called exterem base. ( exterem => cannot be written as linear combination of other points)
+for submodular function,
+max{ x'(V) : x in B(f)  } = min{ f(S): S c= V } [ As proved in 1st reading]
+
+Distance function : 
+A mapping V -> {0,1,2,3... n}
+Each distance function induce mapping L(d) of V as u Pd v if  d(u) < d(v)  or (d(u)=d(v) and u<v)
+
+
+In algo, we will maintain a set D of n ( = |V| ) distances & a vector lemda ( 0 <= lembda[i]<= 1)
+s.t.
+x=Sum ( lembda[d]*yd* )[for d in D] where  sum(lemda[d])  =1 
+x can be written as lembda*yD , yD = { y(d) , d in D}
+let Dmin(v) = min{ d(v) , d in D }
+we say that (x,lemda,D) is valid iff 
+	1. x(v) < 0 => d(v)=0 for all d in D
+	2. d(v) < Dmiv(v)+1 for all d in D & v in V
+
+we are focusing on this triple, because algo will also maintain it in all iteration. sometime it will be valid, sometime not.
+
+a 4tuple (D,lemda,x,S) is optimal iff
+1. (c,lemda,D) is valid triple
+2. x(v)<=0 for all v in S
+3. x(v)>=0 for all v not in S
+4. v <d w for all d in D, v in S, w in V-S
+
+we will also say that 3tuple (D,lemda,x) is optimal if there exist some S such that 4tuple satisfy above ( 6 line above ) property.
+as we need to satisfy 4th property also, so only n possibilty of S are left.
+
+Existance of optimal condition:
+i.e. if S is the subset where f minimize, then there exist some 4tuple (D,lemda,x,S) which satisfy above optimal condition ( which was proved to be optimal )
+{ It's prove is not fully clear to me}
+
+
+#Define partial_optimal to 4tuple (D,lamda,x,S) if it satisfy all above condition except 2nd.
+
+Theorm :
+if partial optimal condition is satisfied then phi is an optimal set for fs in subset of V-S
+& for any subset T c= V, 
+f(T) >= f(S /\ T ) + f(S \/ T ) - f(S) = f(S /\ T) + fs(T-S) >= f(S/\T)
+
+#Distance function : ( function of v) , represanted as INC(d,v)
+d'(u)=d(v)+(u==v)
+
+Theorm : 
+	yd'(v) <= yd(v)
+	yd'(v) >= yd(u) for u!=v
+	
